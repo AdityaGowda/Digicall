@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./dashboard.css";
 import Close from "../../assets/svg/close";
+import CreateMeetButton from "./components/createMeetButton";
+import { ShowCreateMeetPopUp } from "./components/createMeetPopUpBlock";
 
 function Dashboard() {
   const [showCreateMeetPopUp, setshowCreateMeetPopUp] = useState(false);
@@ -9,22 +11,9 @@ function Dashboard() {
   }
   return (
     <div className="dashboardContainer">
-      <div className="createMeetButtonContainer">
-        <button className="createMeetButton" onClick={showCreateMeetPopUpBox}>
-          Create Meet
-        </button>
-      </div>
+      <CreateMeetButton onclickFunc={showCreateMeetPopUpBox} />
       {showCreateMeetPopUp && (
-        <div className="createMeetBlockContainer">
-          <Close clickfunc={showCreateMeetPopUpBox} />
-          <h> Create Meet</h>
-
-          <form>
-            <label className="HostNameLabel">Host Name</label>
-            <input type="text" className="hostNameInput" name="hostName" />
-            <button className="formCreateMeetSubmit">Submit</button>
-          </form>
-        </div>
+        <ShowCreateMeetPopUp showCreateMeetPopUpBox={showCreateMeetPopUpBox} />
       )}
     </div>
   );
