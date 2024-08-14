@@ -1,0 +1,80 @@
+.createMeetButton {
+  font-family: "Armageda W00 Regular";
+  background: #eeeeee;
+  color: #2d9596;
+  font-size: 40px;
+  letter-spacing: 0.8px;
+  padding: 5px 25px;
+  border-radius: 5px;
+}
+
+.createMeetButton:hover {
+  color: #eeeeee;
+  background: #508c9b;
+}
+
+.createMeetButtonContainer {
+  float: right;
+  margin-right: 50px;
+  margin-top: 35px;
+}
+
+.formCreateMeetSubmit {
+  font-family: "Armageda W00 Regular";
+  background: #2d9596;
+  color: #eeeeee;
+  font-size: 40px;
+  letter-spacing: 0.8px;
+  padding: 5px 25px;
+  border-radius: 5px;
+}
+
+.createMeetBlockContainer {
+  background: #eeeeee;
+  padding: 20px;
+  color: #2d9596;
+  position: fixed;
+  inset: 0px;
+  width: 30%;
+  margin: auto;
+  height: fit-content;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.createMeetBlockContainer h {
+  font-size: 45px;
+  letter-spacing: 1.2px;
+}
+
+.HostNameLabel {
+  font-size: 33px;
+}
+
+.hostNameInput {
+  border-color: #2d9596;
+  height: 60px;
+  font-family: "Armageda W00 Regular";
+  padding: 4px 10px;
+  letter-spacing: 1px;
+  font-size: 30px;
+  outline: none;
+  margin-top: 6px;
+}
+.hostNameInput:focus {
+  border-color: #2d9596;
+}
+
+.createMeetBlockContainer form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.closeButton {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
