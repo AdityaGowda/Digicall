@@ -1,0 +1,113 @@
+.headerContainer {
+  padding: 15px 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+}
+
+.txt-align {
+  text-align: center;
+}
+
+.headerLogo {
+  width: 50%;
+}
+
+.loginSvg {
+  display: none;
+}
+.loginSvg:hover {
+  color: #508c9b;
+}
+.notificationSvg:hover {
+  color: #508c9b;
+}
+.bannerContainer {
+  padding: 30px 20px;
+  color: #eeeeee;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bannerContainer h2 {
+  font-size: 90px;
+  letter-spacing: 10px;
+  padding-bottom: 10px;
+}
+.bannerContainer p {
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+.footerContainer {
+  background: #134b70;
+  color: #eeeeee;
+  letter-spacing: 3px;
+  padding: 20px;
+  text-align: left;
+}
+
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+footer table td {
+  padding: 20px;
+  vertical-align: top;
+}
+
+footer h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 30px;
+  color: #2d9596;
+}
+
+footer p {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+}
+
+footer a {
+  color: #2d9596;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+form button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #2d9596;
+  color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #1f7a79;
+}
+
+footer td[colSpan="3"] {
+  text-align: center;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+}
