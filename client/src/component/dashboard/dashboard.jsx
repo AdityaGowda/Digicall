@@ -3,6 +3,7 @@ import "./dashboard.css";
 import Close from "../../assets/svg/close";
 import CreateMeetButton from "./components/createMeetButton";
 import { ShowCreateMeetPopUp } from "./components/createMeetPopUpBlock";
+import UpcomingMeet from "../VedioConference/upcoming";
 
 function Dashboard() {
   const [showCreateMeetPopUp, setshowCreateMeetPopUp] = useState(false);
@@ -11,10 +12,13 @@ function Dashboard() {
   }
   return (
     <div className="dashboardContainer">
-      <CreateMeetButton onclickFunc={showCreateMeetPopUpBox} />
+      <div>
+        <CreateMeetButton onclickFunc={showCreateMeetPopUpBox} />
+      </div>
       {showCreateMeetPopUp && (
         <ShowCreateMeetPopUp showCreateMeetPopUpBox={showCreateMeetPopUpBox} />
       )}
+      <UpcomingMeet />
     </div>
   );
 }

@@ -110,3 +110,70 @@ footer td[colSpan="3"] {
   border-top: 1px solid #333;
   padding-top: 20px;
 }
+.upcomingContainer {
+  width: 90%;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+}
+
+.upcomingSubContainer {
+  border: 1px solid #2d9596;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.upcomingHostNames,
+.upcomingInvites p {
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+.upcomingHostLabel,
+.upcomingInvites label {
+  font-size: 22px;
+  color: #2d9596;
+  letter-spacing: 1px;
+}
+
+.upcomingSecondSubContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-top: 20px;
+}
+
+.upcominTopContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.upcomingJoinButton button {
+  font-family: "Armageda W00 Regular";
+  color: #eeeeee;
+  background: #2d9596;
+  font-size: 22px;
+  letter-spacing: 0.8px;
+  padding: 5px 25px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #2d9596;
+}
+
+.upcomingJoinButton button:hover {
+  background: #eeeeee;
+  color: #2d9596;
+}
+
+.upComingBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 0px;
+}
+
+.Recent {
+  font-size: 30px;
+  color: #2d9596;
+  margin-left: 100px;
+}
