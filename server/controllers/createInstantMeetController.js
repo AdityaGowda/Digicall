@@ -1,7 +1,9 @@
+const db = require("../db/configDB");
+
 const createInstantMeet = async (req, res) => {
-  // roomid and roomcode
-  let roomId = await createRoomId("Host-Kiran");
-  res.json(roomId);
+  const { hostName, title } = req.body;
+  let roomId = await createRoomId(hostName);
+  return await dbInsert(roomId, hostName, title, req.memberId, res);
 };
 
 const createRoomId = async (roomName) => {
@@ -10,7 +12,7 @@ const createRoomId = async (roomName) => {
       method: "POST",
       headers: {
         Authorization:
-          "Bearer  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjM4MTU0MDUsImV4cCI6MTcyNDQyMDIwNSwianRpIjoiNjU5YTFkYTctYTUxNC00ODgyLWI5MTYtMTc5Y2QxYTZjNzcyIiwidHlwZSI6Im1hbmFnZW1lbnQiLCJ2ZXJzaW9uIjoyLCJuYmYiOjE3MjM4MTU0MDUsImFjY2Vzc19rZXkiOiI2NmI5MDNhNDMzY2U3NGFiOWJlOTM5ODQifQ.fVnQx7YGZl5VZp4WWLn4A13Q2ydaJ-fNb0_XOT_Wb78",
+          "Bearer  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjc0NjY1OTUsImV4cCI6MTcyODA3MTM5NSwianRpIjoiNjBiYTQ2YTYtZGQxZi00MmJmLTlkMzktOGZjYWRmNmJmYmQ3IiwidHlwZSI6Im1hbmFnZW1lbnQiLCJ2ZXJzaW9uIjoyLCJuYmYiOjE3Mjc0NjY1OTUsImFjY2Vzc19rZXkiOiI2NmI5MDNhNDMzY2U3NGFiOWJlOTM5ODQifQ.ReWTrFPPbIWdIXunIpqhBPwA_VTzKXV-Syv9v9LX-yk",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -39,7 +41,7 @@ const createRoomCode = async (roomId) => {
         method: "POST",
         headers: {
           Authorization:
-            "Bearer  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjM4MTU0MDUsImV4cCI6MTcyNDQyMDIwNSwianRpIjoiNjU5YTFkYTctYTUxNC00ODgyLWI5MTYtMTc5Y2QxYTZjNzcyIiwidHlwZSI6Im1hbmFnZW1lbnQiLCJ2ZXJzaW9uIjoyLCJuYmYiOjE3MjM4MTU0MDUsImFjY2Vzc19rZXkiOiI2NmI5MDNhNDMzY2U3NGFiOWJlOTM5ODQifQ.fVnQx7YGZl5VZp4WWLn4A13Q2ydaJ-fNb0_XOT_Wb78",
+            "Bearer  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3Mjc0NjY1OTUsImV4cCI6MTcyODA3MTM5NSwianRpIjoiNjBiYTQ2YTYtZGQxZi00MmJmLTlkMzktOGZjYWRmNmJmYmQ3IiwidHlwZSI6Im1hbmFnZW1lbnQiLCJ2ZXJzaW9uIjoyLCJuYmYiOjE3Mjc0NjY1OTUsImFjY2Vzc19rZXkiOiI2NmI5MDNhNDMzY2U3NGFiOWJlOTM5ODQifQ.ReWTrFPPbIWdIXunIpqhBPwA_VTzKXV-Syv9v9LX-yk",
           "Content-Type": "application/json",
         },
       }
@@ -51,4 +53,52 @@ const createRoomCode = async (roomId) => {
   }
 };
 
+const dbInsert = async (roomCodeData, hostName, title, memberId, res) => {
+  const meetHostDetail = roomCodeData.data[0];
+  const guestHostDetail = roomCodeData.data[1];
+  console.log(roomCodeData.data[0]);
+  let sql1 =
+    "insert into meet (hostname,title,roomId,status,member_id,roomCode,role) values (?,?,?,?,?,?,?);";
+  console.log(
+    hostName,
+    title,
+    meetHostDetail.room_id,
+    meetHostDetail.enabled,
+    memberId,
+    meetHostDetail.code,
+    meetHostDetail.role
+  );
+  db.query(
+    sql1,
+    [
+      hostName,
+      title,
+      meetHostDetail.room_id,
+      meetHostDetail.enabled,
+      memberId,
+      meetHostDetail.code,
+      meetHostDetail.role,
+    ],
+    (err, results) => {
+      if (err) {
+        console.error(`Error querying database: `, err);
+        return res.status(500).json({ error: "Internal server error" });
+      }
+
+      let sql2 =
+        "insert into meet_guest (guestRoomId,guestRoomCode) values (?,?);";
+      db.query(
+        sql2,
+        [guestHostDetail.room_id, guestHostDetail.code],
+        (err, results) => {
+          if (err) {
+            console.error(`Error querying database: `, err);
+            return res.status(500).json({ error: "Internal server error" });
+          }
+          return res.status(200).json({ message: "meet created" });
+        }
+      );
+    }
+  );
+};
 module.exports = { createInstantMeet };

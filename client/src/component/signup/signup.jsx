@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../login/login.css";
 
 function SignUp() {
+  const navigate = useNavigate();
   const initialValues = {
-    username: "",
+    name: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -14,6 +16,7 @@ function SignUp() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(e, "ppppppppppppp", name, value);
     setFormValues({ ...formValues, [name]: value });
   };
 
@@ -26,14 +29,48 @@ function SignUp() {
   useEffect(() => {
     console.log(formErrors);
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(formValues);
+      setIsSubmit(false);
+      fetch("http://localhost:8000/api/signUp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formValues),
+      })
+        .then((e) => {
+          if (e.status != 200) {
+            setFormErrors({
+              serverErrror: "server error",
+            });
+          }
+          let response = e.json();
+          if (response.accExists == true) {
+            setFormErrors({
+              serverErrror: "Account exists",
+            });
+          }
+          if (e.status == 200) {
+            const loginData = {
+              login: "true",
+              DigiToken: response.token,
+            };
+            localStorage.setItem("loginData", JSON.stringify(loginData));
+            navigate("/dashboard");
+          }
+        })
+        .catch((e) => {
+          console("server error : ", e);
+          setFormErrors({
+            serverErrror: "server error",
+          });
+        });
     }
   }, [formErrors, formValues, isSubmit]);
   const validate = (values) => {
     const errors = {};
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    if (!values.username) {
-      errors.username = "Username is required!";
+    if (!values.name) {
+      errors.name = "Username is required!";
     }
     if (!values.email) {
       errors.email = "Email is required!";
@@ -55,7 +92,7 @@ function SignUp() {
 
   return (
     <>
-      <div className="bgImg"></div>
+      <div className="bgImg" onClick={() => navigate("/")}></div>
       <div className="container">
         {Object.keys(formErrors).length === 0 && isSubmit ? (
           <div className="ui message success">Signed in successfully</div>
@@ -71,13 +108,13 @@ function SignUp() {
               <label>Username</label>
               <input
                 type="text"
-                name="username"
+                name="name"
                 placeholder="Choose a username"
-                value={formValues.username}
+                value={formValues.name}
                 onChange={handleChange}
               />
             </div>
-            <p>{formErrors.username}</p>
+            <p>{formErrors.name}</p>
             <div className="field">
               <label>Email</label>
               <input
@@ -112,10 +149,12 @@ function SignUp() {
             </div>
             <p>{formErrors.confirmPassword}</p>
             <button className="fluid ui submit button blue">Submit</button>
+            <p>{formErrors.serverErrror}</p>
           </div>
         </form>
         <div className="text">
-          Already have an account? <span>Login</span>
+          Already have an account?{" "}
+          <span onClick={() => navigate("/login")}>Login</span>
         </div>
       </div>{" "}
     </>

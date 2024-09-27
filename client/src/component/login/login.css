@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   max-width: 500px;
   width: 100%;
   margin: auto;
@@ -14,7 +13,8 @@
   border: 1px solid #dfdfdf;
   padding: 20px;
   border-radius: 5px;
-  background: #fff;
+  background-color: #508c9b;
+  z-index: 10;
 }
 
 input {
@@ -31,26 +31,32 @@ pre {
 
 h1 {
   margin-bottom: 15px;
+  color: white;
+  letter-spacing: 4px;
 }
-button {
+form .submit {
   background: #05b462 !important;
-  padding: 5px;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 5px;
   width: 100%;
 }
 
 p {
-  color: rgb(255, 0, 0);
+  color: rgb(236, 95, 95);
 }
 
 .text {
   margin: 2px;
   padding: 5px;
+  color: white;
+  z-index: 10;
+  letter-spacing: 2px;
 }
 
 span {
   color: rgb(0, 95, 236);
   cursor: pointer;
+  z-index: 10;
 }
 
 .field {
@@ -61,4 +67,18 @@ span {
 }
 .submit {
   margin-top: 15px;
+}
+
+.field label {
+  color: white;
+  letter-spacing: 4px;
+}
+
+.bgImg {
+  background: #000000a3;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  z-index: 5;
 }

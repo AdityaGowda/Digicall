@@ -2,7 +2,7 @@ import React from "react";
 
 const UpcomingMeet = () => {
   return (
-    <section>
+    <div>
       <h className="Recent">Recent</h>
       <section className="upComingBody">
         <div className="upcomingContainer">
@@ -28,7 +28,7 @@ const UpcomingMeet = () => {
           </div>
         </div>
       </section>
-    </section>
+    </div>
   );
 };
 

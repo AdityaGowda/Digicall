@@ -1,7 +1,7 @@
 .createMeetButton {
   font-family: "Armageda W00 Regular";
-  background: #eeeeee;
-  color: #2d9596;
+  background: #2d9596;
+  color: #eeeeee;
   font-size: 40px;
   letter-spacing: 0.8px;
   padding: 5px 25px;
@@ -9,8 +9,8 @@
 }
 
 .createMeetButton:hover {
-  color: #eeeeee;
-  background: #508c9b;
+  color: #508c9b;
+  background: #eeeeee;
 }
 
 .createMeetButtonContainer {
@@ -35,8 +35,9 @@
   padding: 20px;
   color: #2d9596;
   position: fixed;
+  border: 3px solid #2d9596;
   inset: 0px;
-  width: 30%;
+  width: 50%;
   margin: auto;
   height: fit-content;
   z-index: 10;
@@ -78,4 +79,5 @@
   position: absolute;
   right: 15px;
   top: 15px;
+  cursor: pointer;
 }

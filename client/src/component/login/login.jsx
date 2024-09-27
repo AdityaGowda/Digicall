@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./login.css";
 
 function Login() {
+  const navigate = useNavigate();
   const initialValues = {
     email: "",
     password: "",
@@ -21,10 +23,50 @@ function Login() {
     setIsSubmit(true);
   };
 
+  const showSignUp = () => {
+    navigate("/signup");
+  };
   useEffect(() => {
     console.log(formErrors);
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(formValues);
+      fetch("http://localhost:8000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formValues),
+      })
+        .then((e) => {
+          if (e.status != 200) {
+            setFormErrors({
+              serverErrror: "server error",
+            });
+            return;
+          }
+          return e.json();
+        })
+        .then((e) => {
+          console.log(e, "----------------------");
+          if (e.accExists == false) {
+            setFormErrors({
+              serverErrror: "Account not exists",
+            });
+            return;
+          } else {
+            const loginData = {
+              digiLogin: true,
+              digiLoginToken: e.token,
+            };
+            localStorage.setItem("digiLoginKey", JSON.stringify(loginData));
+            if (localStorage.getItem("digiLoginKey")) {
+              let key = localStorage.getItem("digiLoginKey");
+              key = JSON.parse(key);
+              if (key.digiLogin == true) {
+                navigate("/dashboard");
+              }
+            }
+          }
+        });
     }
   }, [formErrors, formValues, isSubmit]);
 
@@ -43,12 +85,13 @@ function Login() {
     } else if (values.password.length > 10) {
       errors.password = "Password cannot exceed more than 10 characters";
     }
+    console.log(errors, "----------------------errors");
     return errors;
   };
 
   return (
     <>
-      <div className="bgImg"></div>
+      <div className="bgImg" onClick={() => navigate("/")}></div>
       <div className="container">
         {Object.keys(formErrors).length === 0 && isSubmit ? (
           <div className="ui message success">Signed in successfully</div>
@@ -83,10 +126,12 @@ function Login() {
             </div>
             <p>{formErrors.password}</p>
             <button className="fluid ui button submit blue">Submit</button>
+            <p>{formErrors.serverErrror}</p>
           </div>
         </form>
         <div className="text">
-          Don't have an account? <span>Signup</span>
+          Don't have an account?{" "}
+          <span onClick={() => showSignUp()}>Signup</span>
         </div>
       </div>
     </>

@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const db = require("./db/configDB");
 
 const createInstantMeet = require("./router/createInstantMeet");
@@ -8,6 +9,7 @@ const { createMeetTable } = require("./db/tables/meetTable");
 const { createMeetInviteTable } = require("./db/tables/joinMeetInvite");
 const auth = require("./router/auth");
 app.use(express.json());
+app.use(cors());
 app.use("/api", createInstantMeet);
 app.use("/api", auth);
 db.connect((err) => {

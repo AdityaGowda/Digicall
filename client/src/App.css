@@ -13,9 +13,6 @@
   width: 50%;
 }
 
-.loginSvg {
-  display: none;
-}
 .loginSvg:hover {
   color: #508c9b;
 }
@@ -176,4 +173,15 @@ footer td[colSpan="3"] {
   font-size: 30px;
   color: #2d9596;
   margin-left: 100px;
+}
+
+.headerIcons {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+button {
+  cursor: pointer;
 }

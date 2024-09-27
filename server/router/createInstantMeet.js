@@ -1,10 +1,11 @@
 const express = require("express");
 const createMeetRouter = express.Router();
-
 const createInstantMeetController = require("../controllers/createInstantMeetController");
+const { checkAuthToken } = require("../middleware/authTokenMiddleware");
 
-createMeetRouter.get(
+createMeetRouter.post(
   "/createMeet",
+  checkAuthToken,
   createInstantMeetController.createInstantMeet
 );
 
