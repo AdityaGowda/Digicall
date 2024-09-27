@@ -9,7 +9,20 @@
 // curl --location --request POST 'https://api.100ms.live/v2/room-codes/room/66b908875b7728dcdf817dff' --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjM2MjMyNzksImV4cCI6MTcyNDIyODA3OSwianRpIjoiZTIwMWRiNmEtMDU0Yy00ZDg2LWI0ZDktNWY4MGI2MjE5ZTI0IiwidHlwZSI6Im1hbmFnZW1lbnQiLCJ2ZXJzaW9uIjoyLCJuYmYiOjE3MjM2MjMyNzksImFjY2Vzc19rZXkiOiI2NmI5MDNhNDMzY2U3NGFiOWJlOTM5ODQifQ.LKgZncIGv06mUJXd5t2WOPonVrjxQ32wFZlAIamHvgw' --header 'Content-Type: application/json'
 
 // url https://your-app.com/meeting?roomId=ROOM_ID&token=USER_TOKEN
+https://adithya-videoconf-002.app.100ms.live/meeting/roomId="66bf5780a65b341c345ca99d"&token="lma-qfaa-pmf"
 
+https://adithya-videoconf-002.app.100ms.live/meeting?roomId=66bf5780a65b341c345ca99d&token=lma-qfaa-pmf
+
+https://adithya-videoconf-002.app.100ms.live/meeting/lma-qfaa-pmf
+    "id": "66bf5e96b2bfa3eaa9eb091d",
+            "code": "lma-qfaa-pmf",
+            "room_id": "66bf5780a65b341c345ca99d",
+            "role": "host",
+            "enabled": true,
+            "created_at": "2024-08-16T14:13:42.797Z",
+            "updated_at": "2024-08-16T14:13:42.797Z"
+        }
+    ]
 {
   "data": [
     {
