@@ -21,10 +21,11 @@ exports.checkAuthToken = async (req, res, next) => {
       if (decoded) {
         console.log(decoded);
         try {
-          const memberId = await getMemberIdByEmail(decoded.email);
+          const memberObject = await getMemberIdByEmail(decoded.email);
           req.email = decoded.email;
-          console.log(memberId);
-          req.memberId = memberId;
+          console.log(memberObject);
+          req.memberId = memberObject.id;
+          req.username = memberObject.name;
           next();
         } catch (error) {
           return res

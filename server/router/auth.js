@@ -14,10 +14,6 @@ auth.post(
 auth.post(
   "/verifyDigiLoginToken",
   authTokenVerification.checkAuthToken,
-  (req, res) => {
-    console.log("cococo");
-    res.status(200);
-    res.end();
-  }
+  authController.userVerification
 );
 module.exports = auth;

@@ -2,8 +2,8 @@ const db = require("../db/configDB");
 
 const createInstantMeet = async (req, res) => {
   const { hostName, title } = req.body;
-  let roomId = await createRoomId(hostName);
-  return await dbInsert(roomId, hostName, title, req.memberId, res);
+  let roomId = await createRoomId(req.email + 1);
+  console.log(roomId);
 };
 
 const createRoomId = async (roomName) => {
@@ -20,9 +20,10 @@ const createRoomId = async (roomName) => {
         description: "This is a sample description for the room",
       }),
     });
-
+    console.log(response);
     if (response.ok) {
       const data = await response.json();
+      console.log(data);
       const roomCode = await createRoomCode(data.id);
       return roomCode;
     } else {

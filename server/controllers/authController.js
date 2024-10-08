@@ -39,6 +39,11 @@ exports.signUp = async (req, res) => {
   });
 };
 
+exports.userVerification = async (req, res) => {
+  const { username, email } = req;
+  res.status(200).json({ username: username, email: email });
+};
+
 // PASSWORD ENCRYPT
 const PasswordEncrypt = async (password) => {
   let encrytedPassword = await encrypt.hash(password, 12);

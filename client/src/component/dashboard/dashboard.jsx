@@ -8,6 +8,7 @@ import UpcomingMeet from "../VedioConference/upcoming";
 function Dashboard() {
   const [showCreateMeetPopUp, setshowCreateMeetPopUp] = useState(false);
   const [loginToken, setLoginToken] = useState({});
+  const [userDetails, setUserDetails] = useState({});
   function showCreateMeetPopUpBox() {
     setshowCreateMeetPopUp((e) => !e);
   }
@@ -30,13 +31,11 @@ function Dashboard() {
         })
           .then((response) => response.json())
           .then((data) => {
-            console.log("Server Response:", data);
+            setUserDetails(data);
           })
           .catch((error) => {
-            console.error("Error:", error);
+            console.log("Error:", error);
           });
-
-        console.log(loginToken);
       }
     };
     verifyToken();
@@ -51,6 +50,8 @@ function Dashboard() {
           <div className="bgImg"></div>
           <ShowCreateMeetPopUp
             showCreateMeetPopUpBox={showCreateMeetPopUpBox}
+            useDetails={userDetails}
+            loginToken={loginToken}
           />
         </>
       )}
