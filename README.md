@@ -1,10 +1,13 @@
 # Digicall
 
+![React](https://img.shields.io/badge/Frontend-React.js-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Node.js](https://img.shields.io/badge/Backend-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/API-Express.js-black?style=for-the-badge&logo=express)
+![MySQL](https://img.shields.io/badge/Database-MySQL-00618A?style=for-the-badge&logo=mysql&logoColor=white)
+![100ms](https://img.shields.io/badge/Video%20SDK-100ms-orange?style=for-the-badge)
 ![Fullstack](https://img.shields.io/badge/Type-Fullstack-blueviolet?style=for-the-badge)
-![GitHub Repo Size](https://img.shields.io/github/repo-size/AdityaGowda/Digicall)
-![GitHub Stars](https://img.shields.io/github/stars/AdityaGowda/Digicall)
-![License](https://img.shields.io/github/license/AdityaGowda/Digicall)
-![Status](https://img.shields.io/badge/Project-Ongoing-yellow)
+![Status](https://img.shields.io/badge/Status-Ongoing%20Project-yellow?style=for-the-badge)
+
 
 ## 🚀 About Digicall
 Digicall is a full-stack video-calling platform where users can create accounts, connect with people, and start **one-to-one or group video calls**.  
