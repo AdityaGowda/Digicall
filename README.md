@@ -1,12 +1,13 @@
 # Digicall
 
-![React](https://img.shields.io/badge/Frontend-React.js-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![Node.js](https://img.shields.io/badge/Backend-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
-![Express](https://img.shields.io/badge/API-Express.js-black?style=for-the-badge&logo=express)
-![MySQL](https://img.shields.io/badge/Database-MySQL-00618A?style=for-the-badge&logo=mysql&logoColor=white)
-![100ms](https://img.shields.io/badge/Video%20SDK-100ms-orange?style=for-the-badge)
 ![Fullstack](https://img.shields.io/badge/Type-Fullstack-blueviolet?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Ongoing%20Project-yellow?style=for-the-badge)
+![Frontend](https://img.shields.io/badge/Frontend-React.js-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Backend](https://img.shields.io/badge/Backend-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![API](https://img.shields.io/badge/API-Express.js-black?style=for-the-badge&logo=express)
+![Database](https://img.shields.io/badge/Database-MySQL-00618A?style=for-the-badge&logo=mysql&logoColor=white)
+![Video SDK](https://img.shields.io/badge/Video%20SDK-100ms-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/Project-Ongoing-yellow?style=for-the-badge)
+
 
 
 ## 🚀 About Digicall
