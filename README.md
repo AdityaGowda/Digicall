@@ -1,9 +1,8 @@
 # Digicall
 
+![Fullstack](https://img.shields.io/badge/Type-Fullstack-blueviolet?style=for-the-badge)
 ![GitHub Repo Size](https://img.shields.io/github/repo-size/AdityaGowda/Digicall)
 ![GitHub Stars](https://img.shields.io/github/stars/AdityaGowda/Digicall)
-![GitHub Forks](https://img.shields.io/github/forks/AdityaGowda/Digicall)
-![GitHub Issues](https://img.shields.io/github/issues/AdityaGowda/Digicall)
 ![License](https://img.shields.io/github/license/AdityaGowda/Digicall)
 ![Status](https://img.shields.io/badge/Project-Ongoing-yellow)
 
@@ -27,7 +26,6 @@ The project is **in ongoing development**, and new features are actively being a
 - 100ms  
 
 ---
-## 🏷️ Project Tags
 
 ## 🏷️ Project Tags
 
